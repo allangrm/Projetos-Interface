@@ -1,0 +1,88 @@
+<!-- Formulário de Pesquisa -->
+ <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Pesquisa UEPB</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1 id="title">Pesquisa de Satisfação do Aluno - UEPB</h1>
+
+    <p id="description">Obrigado por dedicar seu tempo para nos ajudar a melhorar o curso de Ciência da Computação.</p>
+
+    <form id="survey-form">
+
+        <div class="form-group">
+            <label id="name-label" for="name">Nome Completo</label>
+            <input type="text" id="name" placeholder="Digite seu nome" required>
+        </div>
+
+        <div class="form-group">
+            <label id="email-label" for="email">Email Acadêmico</label>
+            <input type="email" id="email" placeholder="email@aluno.uepb.edu.br" required>
+        </div>
+
+        <div class="form-group">
+            <label id="number-label" for="number">Idade</label>
+            <input type="number" id="number" min="16" max="100" placeholder="Sua idade">
+        </div>
+
+        <div class="form-group">
+            <label for="dropdown">Qual seu período atual?</label>
+            <select id="dropdown">
+                <option value="" disabled selected>Selecione uma opção</option>
+                <option value="0">1º Período</option>
+                <option value="1">2º Período</option>
+                <option value="2">3º Período</option>
+                <option value="3">4º Período</option>
+                <option value="4">5º Período</option>
+                <option value="5">6º Período</option>
+                <option value="6">7º Período</option>
+                <option value="7">8º Período</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <p>Você recomendaria o curso de CC da UEPB?</p>
+            <label>
+                <input type="radio" name="recommend" value="sim" checked> Com certeza
+            </label>
+            <label>
+                <input type="radio" name="recommend" value="talvez"> Talvez
+            </label>
+            <label>
+                <input type="radio" name="recommend" value="nao"> Não
+            </label>
+        </div>
+
+        <div class="form-group">
+            <p>Quais disciplinas você mais gostou? (Marque todas que se aplicam)</p>
+            <label>
+                <input type="checkbox" value="algoritmos"> Algoritmos
+            </label>
+            <label>
+                <input type="checkbox" value="calculo"> Cálculo
+            </label>
+            <label>
+                <input type="checkbox" value="banco-dados"> Banco de Dados
+            </label>
+            <label>
+                <input type="checkbox" value="web"> Programação Web
+            </label>
+        </div>
+
+        <div class="form-group">
+            <p>Comentários adicionais ou sugestões:</p>
+            <textarea id="comments" placeholder="Deixe seu feedback aqui..."></textarea>
+        </div>
+
+        <div class="form-group">
+            <button id="submit" type="submit">Enviar Pesquisa</button>
+        </div>
+
+    </form>
+</body>
+</html>
