@@ -17,7 +17,7 @@ h1, p {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     max-width: 600px;
-    margin: 0 auto; /* Centraliza o formulário */
+    margin: 0 auto; 
 }
 
 .form-group {
@@ -48,9 +48,14 @@ textarea {
 }
 
 input[type="radio"]:checked {
-    background-color: #0000FF; 
-    border-color: #0000FF;
+    background-color: #000000; 
+    border-color: #000000;    
 }
+
+input[type="radio"], input[type="checkbox"] {
+    accent-color: black;
+}
+
 button#submit {
     display: block;
     width: 100%;

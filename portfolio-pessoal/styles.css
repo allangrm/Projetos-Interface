@@ -1,0 +1,335 @@
+/*Configurações Globais */
+:root {
+    --bg-dark: #0a0a0a;         
+    --card-bg: #1a1a1a;         
+    --neon-green: #00ff41;      
+    --text-primary: #e0e0e0;    
+    --text-secondary: #a0a0a0;  
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: New Century Schoolbook, TeX Gyre Schola, serif;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+}
+
+/*Navbar*/
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(90deg, #050505 0%, #0d2b0d 100%);
+    border-bottom: 1px solid var(--neon-green);
+    z-index: 10;
+}
+
+#navbar ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    padding-right: 40px;
+}
+
+#navbar a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    transition: all  0.3s ease-in-out;
+}
+
+#navbar a:hover {
+    color: var(--neon-green);
+}
+
+/*Seção de Perfil */
+#welcome-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: radial-gradient(circle at center, #2c2b2b 0%, #000000 75%);
+    text-align: center;
+    padding-top: 60px;
+}
+
+#welcome-section h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, var(--neon-green), var(--text-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+#welcome-section p {
+    font-size: 1.5rem;
+    color: var(--texto-primary);
+    max-width: 600px;
+    animation: fadeInUp 1.2s ease;
+}
+
+.profile-container {
+    max-width: 800px;
+    padding: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+/* Estilo da Foto */
+.photo-placeholder img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%; 
+    object-fit: cover;
+    border: 4px solid var(--neon-green);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.3); 
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-placeholder img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 255, 65, 0.6);
+}
+
+#welcome-section h2 {
+    font-size: 2.5rem;
+    margin: 10px 0;
+    color: var(--neon-green);
+}
+
+#welcome-section .subtitle   {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+/*Seção de Projetos */
+#projects {
+    padding: 80px 20px;
+    background-color: var(--bg-dark);
+    text-align: center;
+}
+
+#projects h2 {
+    font-size: 2.5rem;
+    border-bottom: 2px solid var(--neon-green);
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 50px;
+}
+
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Cartão */
+.project-tile {
+    background-color: var(--card-bg);
+    width: 300px;
+    height: 280px; 
+    border: 1px solid #333;
+    border-radius: 8px;
+    overflow: hidden; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+    position: relative;
+}
+
+.project-tile a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.project-tile:hover {
+    transform: translateY(-5px);
+    border-color: var(--neon-green);
+    box-shadow: 0 10px 20px rgba(0, 255, 65, 0.15);
+}
+
+/*Área da Imagem e Overlay*/
+.image-container {
+    position: relative; 
+    width: 100%;
+    height: 200px; 
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    filter: grayscale(100%);
+}
+
+.project-tile:hover .image-container img {
+    transform: scale(1.1);
+}
+
+/*O Overlay com a Descrição*/
+.overlay {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box; 
+    /*Invisível no inicio*/
+    opacity: 0;
+    transform: translateY(20px); 
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.project-tile:hover .overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.overlay p {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.btn-details {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--neon-green);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid var(--neon-green);
+    padding: 8px 15px;
+    border-radius: 4px;
+}
+
+/*Área do Título */
+.title-container {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--card-bg);
+    border-top: 1px solid #333;
+    z-index: 2; 
+}
+
+.title-container h3 {
+    margin: 0;
+    color: var(--neon-green);
+    font-size: 1.3rem;
+    padding: 0 10px;
+
+}
+
+/* Cartão do Projeto */
+.project-tile {
+    background-color: var(--card-bg); 
+    width: 300px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.project-tile:hover  {
+    transform: translateY(-10px);
+    border-color: var(--neon-green); 
+    box-shadow: 0  10px 20px rgba(0, 255, 65, 0.15);
+}
+
+.project-tile:hover h3  {
+    transition: all 1s ease-in-out;
+    background: linear-gradient(90deg, var(--neon-green), var(--text-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Container da Imagem */
+.image-wrapper {
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+    border-bottom: 1px solid #333;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-tile:hover .image-wrapper img {
+    transform: scale(1.1);
+}
+
+/* Informações do Projeto*/
+.project-info {
+    padding: 20px;
+    text-align: left;
+}
+
+.project-info p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+/*Contato*/
+#contact {
+    padding: 60px;
+    background-color: #000;
+    text-align: center;
+    border-top: 2px solid var(--neon-green);
+}
+
+#contact h2{
+    font-size: 1.5rem;
+    display: wrap;
+    padding-bottom: 10px;
+    margin-bottom: 50px;
+}
+
+#profile-link {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    border: 1px solid var(--neon-green);
+    border-radius: 10px;
+    padding: 10px 20px;
+    transition: background 0.3s, color 0.3s;
+}
+
+#profile-link:hover {
+    background-color: var(--neon-green);
+    color: black;
+    transition: all  0.5s ease-in-out;
+    box-shadow: 0 10px 20px rgba(0, 255, 65, 0.3);
+}
+
+@media (max-width: 600px) {
+    #welcome-section h1 { font-size: 2rem; }
+    .photo-placeholder img { width: 140px; height: 140px; }
+}
